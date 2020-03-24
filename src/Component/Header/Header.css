@@ -1,4 +1,6 @@
-
+.d-flex{
+    margin: 0px 200px;
+}
 .flex-grow-1 img{
     margin-left: 0px;
     width: 150px;
