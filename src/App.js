@@ -1,14 +1,15 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Header from './Component/Header/Header';
 import Banner from './Component/Banner/Banner';
+import Nav from './Component/Nav/Nav';
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <Header></Header>
       <Banner></Banner>
+      <Nav></Nav>
     </div>
   );
 }

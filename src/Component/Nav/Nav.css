@@ -1,0 +1,29 @@
+.nav{
+    margin: 20px;
+}
+.nav li{
+    margin: 25px;
+}
+.nav li span{
+    padding: 5px;
+    color: black;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.nav .active{
+    color: red;
+}
+
+.nav .active::after{
+    content: "";
+    width: 80%;
+    margin: 0 auto;
+    height: 2px;
+    background-color: rgb(255, 69, 101);
+    display: block;
+}
+
+.meals-margin{
+    margin: 10px 200px;
+}
