@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import {
   BrowserRouter as Router,
@@ -12,6 +12,13 @@ import Nav from './Component/Nav/Nav';
 import MenuDetails from './Component/MenuDetails/MenuDetails';
 
 function App() {
+  const [cart,setCart] = useState([]);
+  const cartHandler = (data) => {
+    const newCart = [...cart,data]
+    setCart(newCart);
+   
+  }
+console.log(cart);
   return (
      <Router>
         <div>
@@ -23,8 +30,9 @@ function App() {
             </Route>  
             <Route path="/food/:id">
               <Header></Header>
-              <MenuDetails></MenuDetails>
+              <MenuDetails cart={cart} cartHandler={cartHandler}></MenuDetails>
             </Route>
+            
           
           </Switch>
         </div>

@@ -30,6 +30,11 @@ const Nav = () => {
                         selectedMeals.map(food => <FoodItem food={food}></FoodItem>)
                     }
             </div>
+            <div>
+                <button>
+                    Chekckout the food.
+                </button>
+            </div>
         </div>
     );
 };
