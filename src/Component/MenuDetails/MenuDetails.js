@@ -1,12 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import allFoods from '../../FakeData/foods.json';
 import { useParams } from 'react-router-dom';
 
 const MenuDetails = (props) => {
     const {id} = useParams();
-    console.log(props);
+   // console.log(props);
     const currentFood = allFoods.find(food=> food.id == id);
-    console.log(currentFood);
+   // console.log(currentFood);
+   const[amount, setAmount]=useState(1);
+   useState(() => {
+    if(currentFood.amount){
+        setAmount(currentFood.amount)
+    }
+    },[currentFood.quantity]);
     
     return (
         <div className="container my-5 pt-5">
@@ -17,9 +23,9 @@ const MenuDetails = (props) => {
                     <div className="d-flex  my-4">
                         <h3>${currentFood.price}</h3>
                         <div>
-                            <button>-</button>
-                            as
-                            <button>+</button>
+                            <button onClick={() => setAmount(amount <= 1? 1 : amount-1)}>-</button>
+                            {amount}
+                            <button onClick={() => setAmount(amount >= 100? 100 : amount+1)}>+</button>
                         </div>
                     </div>
                 </div>
