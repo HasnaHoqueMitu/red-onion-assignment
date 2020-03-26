@@ -11,8 +11,9 @@ const MenuDetails = (props) => {
     return (
         <div>
             <h1>{currentFood.name}</h1>
+            <img src={currentFood.images} alt=""/>
             <p>{currentFood.id}</p>
-            <p>{id}</p>
+            
         </div>
     );
 };
