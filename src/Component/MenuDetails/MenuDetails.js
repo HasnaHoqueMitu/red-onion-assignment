@@ -11,6 +11,17 @@ const MenuDetails = (props) => {
     const currentFood = allFoods.find(food=> food.id == id);
    // console.log(currentFood);
    const[amount, setAmount]=useState(1);
+   const [isSuccess, setIsSuccess] = useState(false);
+   const [selectedBigImg, setSelectedBigImg] = useState(currentFood.images[0]);
+   const finalCartHandler = (currentFood) => {
+    currentFood.amount = amount;
+    props.cartHandler(currentFood);
+    setIsSuccess(true);
+    }
+
+    if(isSuccess){
+        setTimeout(() => setIsSuccess(false),1500)
+    }
     
     return (
         <div className="container my-5 pt-5">
@@ -30,12 +41,24 @@ const MenuDetails = (props) => {
                     </div>
                     <br/>
                     <div className="d-flex my-5">
-                        <button className="btn btn-danger add-btn">
+                        <button className="btn btn-danger add-btn"
+                        onClick={() => finalCartHandler(currentFood)}>
                             <FontAwesomeIcon icon={faCartArrowDown} />
                             Add
                         </button>
-                        <p>aaaa</p>
-                        <img src="" alt=""/>
+                        {
+                            isSuccess &&
+                            <p className="ml-3 success-mgs text-success">
+                                <FontAwesomeIcon icon={faCheckCircle} />
+                                Item added to Cart
+                            </p>
+                        }
+                    </div>
+                    <div className="d-flex choose-food">
+                        {
+                            currentFood.images.map((img) => <img src={img} alt=""
+                            className="w-50 shape-img"/>)
+                        }
                     </div>
                 </div>
                 <div className="col-md-6">

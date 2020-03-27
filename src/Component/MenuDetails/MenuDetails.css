@@ -11,3 +11,10 @@
 .add-btn{
     width: 100px;
 }
+.choose-food{
+    height: 200px;
+    width: 400px;
+}
+.choose-food .shape-img{
+    padding: 10px;
+}
