@@ -34,7 +34,7 @@ console.log(cart);
               <MenuDetails cart={cart} cartHandler={cartHandler}></MenuDetails>
             </Route>
             <Route>
-              <Login path="/login"></Login>
+              <Login path="/checkout"></Login>
             </Route>
             
           
