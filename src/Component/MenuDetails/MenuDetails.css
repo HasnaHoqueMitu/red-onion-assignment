@@ -17,4 +17,13 @@
 }
 .choose-food .shape-img{
     padding: 10px;
+    cursor: pointer;
+}
+.active-small-img{
+    border: 1px solid lightgray;
+    border-radius: 50%;
+    box-shadow: 10px 5px 5px rgb(179, 47, 47);
+}
+.big-img{
+    padding: 5px;
 }

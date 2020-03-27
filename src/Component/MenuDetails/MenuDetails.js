@@ -56,13 +56,16 @@ const MenuDetails = (props) => {
                     </div>
                     <div className="d-flex choose-food">
                         {
-                            currentFood.images.map((img) => <img src={img} alt=""
-                            className="w-50 shape-img"/>)
+                            currentFood.images.map((img, index) => <img 
+                            onClick={() => setSelectedBigImg(currentFood.images[index])}
+                            src={img} alt=""
+                            className={currentFood.images[index] === selectedBigImg ? "active-small-img w-50 shape-img" : "w-50 shape-img"}
+                            />)
                         }
                     </div>
                 </div>
                 <div className="col-md-6">
-                    <img src={currentFood.images} alt=""/>
+                    <img className="big-img" src={selectedBigImg} alt=""/>
                 </div>          
             </div>
         </div>
