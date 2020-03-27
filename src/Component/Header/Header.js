@@ -4,7 +4,7 @@ import logo from '../../images/logo2.png';
 
 const Header = () => {
     return (
-        <div class="d-flex">
+        <div class="d-flex spacing">
             <div class="p-2 flex-grow-1">
                 <img src={logo} alt=""/>
             </div>

@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import allFoods from '../../FakeData/foods.json';
 import './MenuDetails.css'
 import { useParams } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCartArrowDown, faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 
 const MenuDetails = (props) => {
     const {id} = useParams();
@@ -25,6 +27,15 @@ const MenuDetails = (props) => {
                             {amount}
                             <button className="btn" onClick={() => setAmount(amount >= 100? 100 : amount+1)}>+</button>
                         </div>
+                    </div>
+                    <br/>
+                    <div className="d-flex my-5">
+                        <button className="btn btn-danger add-btn">
+                            <FontAwesomeIcon icon={faCartArrowDown} />
+                            Add
+                        </button>
+                        <p>aaaa</p>
+                        <img src="" alt=""/>
                     </div>
                 </div>
                 <div className="col-md-6">
