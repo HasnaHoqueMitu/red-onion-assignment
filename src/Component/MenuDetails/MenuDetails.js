@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import allFoods from '../../FakeData/foods.json';
+import {Link} from 'react-router-dom';
 import './MenuDetails.css'
 import { useParams } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -68,6 +69,19 @@ const MenuDetails = (props) => {
                     <img className="big-img" src={selectedBigImg} alt=""/>
                 </div>          
             </div>
+
+            <div className="text-center">
+                    {
+                        props.cart.length ? 
+                        <Link to="/checkout">
+                            <button  className="btn btn-danger btn-secondary">Check Out Your Food</button>
+                        </Link>
+                        :
+                        <button disabled className="btn btn-secondary">Check Out Your Food</button>
+
+                    }
+
+                </div>
         </div>
     );
 };
