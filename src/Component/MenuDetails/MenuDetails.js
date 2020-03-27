@@ -16,8 +16,10 @@ const MenuDetails = (props) => {
                 <div className="col-md-6">
                     <h1>{currentFood.name}</h1>
                     <p className="my-5">{currentFood.fullDescription}</p>
-                    <div className="d-flex">
+                    <div>
+                        <div style={{float:"left",padding:"3px"}}>
                         <h3>${currentFood.price}</h3>
+                        </div>
                         <div className="amount-controller">
                             <button className="btn" onClick={() => setAmount(amount <= 1? 1 : amount-1)}>-</button>
                             {amount}

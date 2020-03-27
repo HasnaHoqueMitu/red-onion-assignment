@@ -1,8 +1,6 @@
-h3{
- margin-left: -10px;
-}
 .amount-controller{
     padding: 1px 10px;
     border-radius: 25px;
     border: 1px solid lightgrey;
+    float: left;
 }
