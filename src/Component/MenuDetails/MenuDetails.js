@@ -73,7 +73,7 @@ const MenuDetails = (props) => {
             <div className="text-center">
                     {
                         props.cart.length ? 
-                        <Link to="/checkout">
+                        <Link to="/shipment">
                             <button  className="btn btn-danger btn-secondary">Check Out Your Food</button>
                         </Link>
                         :

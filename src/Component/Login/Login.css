@@ -2,11 +2,13 @@
     box-sizing: border-box!important;
 }
 .sign-up{
+    
     background-image: url(../../images/signup-bg.png);
     background-repeat: no-repeat;
     background-size: 100%;
     background-position: bottom;
-    height: calc(100vh - 77px);
+    height: 100vh;
+    /* height: calc(100vh - 77px); */
     box-sizing: content-box;
 }
 .sign-up .logo img{

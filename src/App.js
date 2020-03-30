@@ -11,6 +11,8 @@ import Banner from './Component/Banner/Banner';
 import Nav from './Component/Nav/Nav';
 import MenuDetails from './Component/MenuDetails/MenuDetails';
 import Login from './Component/Login/Login';
+import Shipment from './Component/Shipment/Shipment';
+import { PrivateRoute } from './Component/Login/useAuth';
 
 function App() {
   const [cart,setCart] = useState([]);
@@ -36,6 +38,9 @@ console.log(cart);
             <Route>
               <Login path="/checkout"></Login>
             </Route>
+            <PrivateRoute path="/shipment">
+              <Shipment></Shipment>
+            </PrivateRoute>
             
           
           </Switch>
