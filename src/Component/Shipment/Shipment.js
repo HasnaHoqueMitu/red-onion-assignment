@@ -5,18 +5,19 @@ import './Shipment.css';
 import { useState } from 'react';
 
 const Shipment = (props) => {
-    const { register, handleSubmit, watch, errors } = useForm()
+    console.log(props.cart);
+    const { register, handleSubmit, errors } = useForm()
     const onSubmit = data => props.deliveryDetailsHandler(data);
     const { todoor, road, flat, businessname, address} = props.deliveryDetails;
     const reduceQuantity =  (pId) => {
         props.checkOutItemHandler(pId)
     }
     const subTotal = props.cart.reduce((acc,crr) => {
-        return acc + (crr.price * crr.quantity) ;
+        return acc + (crr.price * crr.amount) ;
     },0)
 
     const totalQuantity = props.cart.reduce((acc,crr) => {
-        return acc + crr.quantity ;
+        return Number(acc + crr.amount) ;
     },0)
     const tax = (subTotal / 100) * 5;
     const deliveryFee = totalQuantity && 2;
@@ -58,26 +59,25 @@ const Shipment = (props) => {
                 <div className="offset-md-2 col-md-5">
                     <div className="restaurant-info mb-5">
                         <h4>Form <strong> Star Kabab And Restaura</strong></h4>
-                        <h5>Arriving in 20-30 min</h5>
-                        <h5>107 Rd No 9</h5>
+                        
                     </div>
                    
                     {
                         props.cart.map(item => 
-                            <div className="single-checkout-item mb-3 bg-light rounded d-flex align-items-center justify-content-between p-3">
-                                <img width="100px" src={item.images[0]} alt=""/>
+                            <div className="single-cart bg-light rounded d-flex align-items-center justify-content-between">
+                                <img src={item.images[0]} alt=""/>
                                 <div>
                                     <h6>{item.name}</h6>
                                     <h4 className="text-danger">${item.price.toFixed(2)}</h4>
                                     <p>Delivery free</p>
                                 </div>
                                 <div className="checkout-item-button ml-3 btn">
-                                    <button onClick={() => props.checkOutItemHandler(item.id, (item.quantity+1)) } className="btn font-weight-bolder">+</button>
-                                    <button className="btn bg-white rounded">{item.quantity}</button>
+                                    <button onClick={() => props.checkOutItemHandler(item.id, (item.amount+1)) } className="btn font-weight-bolder">+</button>
+                                    <button className="btn bg-white rounded">{item.amount}</button>
 
                                     {
-                                        item.quantity > 0 ? 
-                                        <button className="btn font-weight-bolder" onClick={() => props.checkOutItemHandler(item.id, (item.quantity -1) )}>-</button>
+                                        item.amount > 0 ? 
+                                        <button className="btn font-weight-bolder" onClick={() => props.checkOutItemHandler(item.id, (item.amount -1) )}>-</button>
                                         :
                                         <button disabled className="btn font-weight-bolder">-</button>
 

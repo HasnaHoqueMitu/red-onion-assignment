@@ -12,6 +12,7 @@ import Nav from './Component/Nav/Nav';
 import MenuDetails from './Component/MenuDetails/MenuDetails';
 import Login from './Component/Login/Login';
 import Shipment from './Component/Shipment/Shipment';
+import OrderComplete from './Component/OrderComplete/OrderComplete';
 import { AuthProvider, PrivateRoute } from './Component/Login/useAuth';
 
 function App() {
@@ -43,12 +44,12 @@ console.log(cart);
 const checkOutItemHandler = (productId, productQuantity) => {
   const newCart = cart.map(item => {
     if(item.id == productId){
-        item.quantity = productQuantity;
+        item.amount = productQuantity;
     }
     return item;
   })
 
-  const filteredCart = newCart.filter(item => item.quantity > 0)
+  const filteredCart = newCart.filter(item => item.amount > 0)
   setCart(filteredCart)
 }
   return (
@@ -65,11 +66,18 @@ const checkOutItemHandler = (productId, productQuantity) => {
               <Header></Header>
               <MenuDetails cart={cart} cartHandler={cartHandler}></MenuDetails>
             </Route>
-            <PrivateRoute path="/checkout">
+            <PrivateRoute path="/shipment">
                 <Header cart={cart}></Header>
                 <Shipment deliveryDetails={deliveryDetails} deliveryDetailsHandler={deliveryDetailsHandler} 
                 cart={cart} clearCart={clearCart} checkOutItemHandler={checkOutItemHandler}></Shipment>
-                
+            </PrivateRoute>
+            <Route path="/login">
+                <Login></Login>
+            </Route>
+            <PrivateRoute path="/order-complete">
+              <Header cart={cart}></Header>
+              <OrderComplete deliveryDetails={deliveryDetails}></OrderComplete>
+              
             </PrivateRoute>
             
           

@@ -81,7 +81,7 @@ const MenuDetails = (props) => {
 
                     }
 
-                </div>
+            </div>
         </div>
     );
 };
