@@ -16,12 +16,41 @@ import { PrivateRoute } from './Component/Login/useAuth';
 
 function App() {
   const [cart,setCart] = useState([]);
+  const [deliveryDetails , setDeliveryDetails] = useState({
+    todoor:null,road:null, flat:null, businessname:null, address: null
+  });
+  const deliveryDetailsHandler = (data) => {
+      setDeliveryDetails(data)
+  }
+  const clearCart = () => {
+    setCart([])
+  }
   const cartHandler = (data) => {
+    const alreadyAdded = cart.find(crt => crt.id == data.id );
     const newCart = [...cart,data]
     setCart(newCart);
+    if(alreadyAdded){
+      const reamingCarts = cart.filter(crt => cart.id != data);
+      setCart(reamingCarts);
+    }else{
+      const newCart = [...cart,data]
+      setCart(newCart);
+    }
    
   }
 console.log(cart);
+
+const checkOutItemHandler = (productId, productQuantity) => {
+  const newCart = cart.map(item => {
+    if(item.id == productId){
+        item.quantity = productQuantity;
+    }
+    return item;
+  })
+
+  const filteredCart = newCart.filter(item => item.quantity > 0)
+  setCart(filteredCart)
+}
   return (
      <Router>
         <div>
@@ -37,7 +66,8 @@ console.log(cart);
             </Route>
             <PrivateRoute path="/checkout">
                 <Header cart={cart}></Header>
-                <Shipment></Shipment>
+                <Shipment deliveryDetails={deliveryDetails} deliveryDetailsHandler={deliveryDetailsHandler} 
+                cart={cart} clearCart={clearCart} checkOutItemHandler={checkOutItemHandler}></Shipment>
                 
             </PrivateRoute>
             
