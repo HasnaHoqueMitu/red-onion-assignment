@@ -35,11 +35,10 @@ console.log(cart);
               <Header></Header>
               <MenuDetails cart={cart} cartHandler={cartHandler}></MenuDetails>
             </Route>
-            <Route>
-              <Login path="/checkout"></Login>
-            </Route>
-            <PrivateRoute path="/shipment">
-              <Shipment></Shipment>
+            <PrivateRoute path="/checkout">
+                <Header cart={cart}></Header>
+                <Shipment></Shipment>
+                
             </PrivateRoute>
             
           
