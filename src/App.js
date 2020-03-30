@@ -12,7 +12,7 @@ import Nav from './Component/Nav/Nav';
 import MenuDetails from './Component/MenuDetails/MenuDetails';
 import Login from './Component/Login/Login';
 import Shipment from './Component/Shipment/Shipment';
-import { PrivateRoute } from './Component/Login/useAuth';
+import { AuthProvider, PrivateRoute } from './Component/Login/useAuth';
 
 function App() {
   const [cart,setCart] = useState([]);
@@ -52,7 +52,8 @@ const checkOutItemHandler = (productId, productQuantity) => {
   setCart(filteredCart)
 }
   return (
-     <Router>
+    <AuthProvider>
+      <Router>
         <div>
           <Switch>
             <Route exact path="/">
@@ -74,7 +75,8 @@ const checkOutItemHandler = (productId, productQuantity) => {
           
           </Switch>
         </div>
-    </Router>
+      </Router>
+    </AuthProvider>
   );
 }
 
