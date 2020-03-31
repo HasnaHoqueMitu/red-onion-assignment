@@ -11,9 +11,9 @@ const Header = () => {
             <div class="p-2 flex-grow-1">
                 <img src={logo} alt=""/>
             </div>
-            <div class="p-2">
+            {/* <div class="p-2">
                 <button>Log in</button>
-            </div>
+            </div> */}
             <div class="p-2">    
                 {
                     auth.user ? 

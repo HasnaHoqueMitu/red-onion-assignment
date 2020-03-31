@@ -14,6 +14,7 @@ import Login from './Component/Login/Login';
 import Shipment from './Component/Shipment/Shipment';
 import OrderComplete from './Component/OrderComplete/OrderComplete';
 import { AuthProvider, PrivateRoute } from './Component/Login/useAuth';
+import NotFound from './Component/NotFound/NotFound';
 
 function App() {
   const [cart,setCart] = useState([]);
@@ -77,10 +78,10 @@ const checkOutItemHandler = (productId, productQuantity) => {
             <PrivateRoute path="/order-complete">
               <Header cart={cart}></Header>
               <OrderComplete deliveryDetails={deliveryDetails}></OrderComplete>
-              
             </PrivateRoute>
-            
-          
+            <Route path="*">
+                <NotFound></NotFound>
+            </Route>
           </Switch>
         </div>
       </Router>

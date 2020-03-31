@@ -1,7 +1,23 @@
-.card{
+.col-md-4 .card{
     border: none;
     text-align: center;
     height: 400px;
     margin: 10px 20px;
     padding: 30px;
 }
+.card-body {
+    color: black;
+}
+.card:hover {
+    box-shadow: 0 0 11px rgba(33,33,33,.2); 
+  }
+.col-md-4 a:hover {
+    text-decoration: none;
+}
+/* .card{
+    border: none;
+    text-align: center;
+    height: 400px;
+    margin: 10px 20px;
+    padding: 30px;
+} */
